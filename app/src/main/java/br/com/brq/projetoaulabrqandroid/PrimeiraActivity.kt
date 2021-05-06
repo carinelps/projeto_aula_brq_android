@@ -23,8 +23,18 @@ class PrimeiraActivity : AppCompatActivity() {
         val cavalo = Cavalo("Meu cavalo")
         val passarinho = Passarinho("Pardal")
 
-        val homem = Homem()
-        val mulher = Mulher()
+        val homem = Homem(animal = passarinho, cor = corAzul)
+        val mulher = Mulher(animal = cavalo, cor = corAmarelo)
+
+        Homem(cachorro, corAzul).apply {
+            meDigaSeuSexo(this)
+            meDigaSeuAnimalDeEstimacao(this)
+        }
+
+        Mulher(passarinho, corAmarelo).apply {
+            meDigaSeuSexo(this)
+            meDigaSeuAnimalDeEstimacao(this)
+        }
 
 
         pintar(corAmarelo)
@@ -45,6 +55,10 @@ class PrimeiraActivity : AppCompatActivity() {
 
         fun meDigaSeuSexo(pessoa: Pessoa){
             println("Seu sexo é: ${pessoa.sexo}")
+        }
+
+        fun meDigaSeuAnimalDeEstimacao(pessoa: Pessoa){
+            println("Seu animal de estimação é: ${pessoa.animal}")
         }
 }
 
